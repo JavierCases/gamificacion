@@ -23,5 +23,24 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "prototype.getNameInstancia": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "nombre",
+          "type": "string",
+          "root": false,
+          "description": "Busca y devuelve el nombre"
+        }
+      ],
+      "description": "Busca un nombre",
+      "http": [
+        {
+          "path": "/getNameInstancia",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
