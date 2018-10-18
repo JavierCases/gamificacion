@@ -1,15 +1,23 @@
 'use strict';
 
 module.exports = function(Juego) {
-    /**
-     * Devuelve el nombre de un Juego enviado como parámetro
-     * @param {Function(Error, string)} callback
-     */
 
-    Juego.prototype.getNombre = function(callback) {
-      var nombre = this.nombre;
-      // TODO
-      callback(null, nombre);
-    };
+	Juego.beforeRemote('create', function(context, juego, next) {
+    //context.args.data.date = Date.now();
+    context.args.data.publisherId = context.req.accessToken.userId;
+    next();
+  });
+/**
+ * Busca un nombre
+ * @param {Function(Error, string)} callback
+ */
+
+Juego.prototype.getNameInstancia = function(callback) {
+  var nombre;
+  var juego = this;
+  // TODO
+  callback(null, juego.nombre);
+};
+
 
 };
